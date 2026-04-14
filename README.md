@@ -1,2 +1,3 @@
-# census-data-analysis
-Census data analysis using Python with EDA, correlation, regression, and hypothesis testing to study rural and urban population patterns.
+# Census Data Analysis
+
+This project performs data analysis on census data using Python.
