@@ -80,3 +80,25 @@ plt.figure(figsize=(10, 6))
 sns.heatmap(df[corr_cols].corr(), annot=True)
 plt.title("Correlation Heatmap")
 plt.show()
+# OBJECTIVE 3: Remove Outliers and Visualize Cleaned Data
+
+df_clean = df[(df["Population_Total_Rural"] >= lower_bound) & (df["Population_Total_Rural"] <= upper_bound)]
+
+print("\nShape before removing outliers:")
+print(df.shape)
+
+print("\nShape after removing outliers:")
+print(df_clean.shape)
+
+plt.figure(figsize=(8, 5))
+sns.histplot(df_clean[target_col], bins=30, kde=True)
+plt.title("Distribution of Rural Population After Removing Outliers")
+plt.xlabel(target_col)
+plt.ylabel("Frequency")
+plt.show()
+
+plt.figure(figsize=(8, 5))
+sns.boxplot(y=df_clean[target_col])
+plt.title("Boxplot of Rural Population After Removing Outliers")
+plt.ylabel(target_col)
+plt.show()
