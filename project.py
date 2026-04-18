@@ -102,3 +102,26 @@ sns.boxplot(y=df_clean[target_col])
 plt.title("Boxplot of Rural Population After Removing Outliers")
 plt.ylabel(target_col)
 plt.show()
+# OBJECTIVE 4: Simple Linear Regression (SLR)
+
+X = df_clean[["Households_Rural"]]
+y = df_clean["Population_Total_Rural"]
+
+model = LinearRegression()
+model.fit(X, y)
+
+y_pred = model.predict(X)
+
+print("\nIntercept:")
+print(model.intercept_)
+
+print("\nCoefficient:")
+print(model.coef_)
+
+plt.figure(figsize=(8, 5))
+plt.scatter(X, y)
+plt.plot(X, y_pred)
+plt.title("SLR: Households_Rural vs Population_Total_Rural")
+plt.xlabel("Households_Rural")
+plt.ylabel("Population_Total_Rural")
+plt.show()
